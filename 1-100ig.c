@@ -2,7 +2,7 @@
 
 int main() 
 {
-    int osszeg=1;
+    int osszeg=0;
 
     for (int i = 1; i <=100; i++)
     {
@@ -11,4 +11,5 @@ int main()
     }
     printf("Az 1-től 100-ig a számok összege: %d\n", osszeg);
     return 0;
+
 }
