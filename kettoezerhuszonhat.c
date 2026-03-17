@@ -2,5 +2,9 @@
 
 int main()
 {
-    printf("%d%d%d%d\n", (int)('c'-'a'), (int)('c'-'c'), (int)('c'-'a'), (int)('g'-'a'));
+    int x = 'c' - 'a'; 
+    int y = x - x;     
+    int z = 'g' - 'a'; 
+
+    printf("%d%d%d%d\n", x, y, x, z);
 }
