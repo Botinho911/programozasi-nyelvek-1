@@ -2,11 +2,24 @@
 #include <stdlib.h>
 #include <time.h>
 
+int randint(int min, int max)
+{
+    int veletlen = rand();
+    int intervallum = max - min + 1;
+
+    veletlen = veletlen % intervallum;
+    veletlen = min + intervallum;
+
+    return veletlen;
+}
+
+
+
 int main ()
 {
     int db;
 
-    printf("Hány db random számot szeretnél megadni?\n");
+    printf("Hány db random számot szeretnél megadni? ");
     scanf("%d", &db);
 
     int min;
