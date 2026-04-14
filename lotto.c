@@ -2,28 +2,22 @@
 #include <stdlib.h>
 #include <time.h>
 
-int randint(int min, int max)
-{
-    int veletlen = rand();
-    int intervallum = max - min + 1;
-
-    veletlen = veletlen % intervallum;
-    veletlen = min + intervallum;
-
-    return veletlen;
-}
-
 
 
 int main ()
 {
-    int db;
+    
+    int n;
 
-    printf("Hány db random számot szeretnél megadni? ");
-    scanf("%d", &db);
+    printf("Hány db random számot szeretnél megadni?\n");
+    scanf("%d", &n);
 
+    int szamok[n];
+
+    int  db= 0;
     int min;
     int max;
+
     printf("Kérem a minimum értéket: ");
     scanf("%d", &min);
 
@@ -32,13 +26,32 @@ int main ()
 
     srand(time(NULL));
     printf("A generált számok: ");
-    for (int i = 0; i < db; ++i)
+
+    while (db < n) 
     {
-        int random_szam = rand() % (max - min + 1) + min;
-        printf("%d", random_szam);
-        if (i < db - 1)
-            printf(", ");
+        int rszam = (rand() % (max - min + 1)) + min;
+        
+       
+        int szerepel = 0; 
+        
+        for (int i = 0; i < db; ++i) {
+            if (szamok[i] == rszam) {
+                szerepel = 1; 
+                break;
+            }
+        }
+
+        if (szerepel == 0) {
+            szamok[db] = rszam;
+            ++db;
+        }
     }
 
+    printf("A generált számok: ");
+    for (int i = 0; i < n; ++i) 
+    {
+        printf("%d ", szamok[i]);
+    }
+    printf("\n");
     return 0;
 }
